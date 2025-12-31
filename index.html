@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy New Year ❤️</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #f0595e, #fad0c4);
+      color: #1c1414;
+      text-align: center;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      text-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    h2 { margin-top: 8px; font-weight: 300; }
+
+    .heart {
+      font-size: 4.5rem;
+      margin: 20px 0;
+      animation: pulse 1.2s infinite;
+    }
+
+    .countdown {
+      margin-top: 15px;
+      padding: 10px 22px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.3);
+      font-size: 1.3rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    .message {
+      max-width: 700px;
+      margin-top: 25px;
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.25);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 14px 38px;
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #ffffff, #ffe6ec);
+      color: #ff4f81;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      transition: 0.3s;
+    }
+
+    button:hover { transform: scale(1.05); }
+
+    #videoBtn {
+      display: none;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+    }
+
+    .gallery {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      max-width: 750px;
+      margin-top: 35px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+  video {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+  z-index: 1001;
+  background: black;
+  cursor: move;
+}
+
+
+
+
+    footer {
+      margin-top: 30px;
+      opacity: 0.8;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+
+    }
+    /* Sorry Box Container */
+.sorry-box {
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 28px 30px;
+  border-radius: 26px;
+  background: linear-gradient(
+    135deg,
+    #ffb3b3,
+    #ffd1d1
+  );
+  color: #4a1a1a;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  display: none;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Small emoji header */
+.sorry-box::before {
+  content: "🙏";
+  display: block;
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+/* Button spacing */
+#sorryBtn {
+  margin-top: 20px;
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .message {
+    font-size: 1rem;
+    padding: 18px;
+  }
+
+  .gallery img {
+    height: 160px;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<!-- Audio -->
+<audio id="bgMusic" preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Video -->
+<video id="loveVideo" controls playsinline>
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+  <h1>Happy New Year, My Wife ❤️🎆</h1>
+  <h2>Welcome 2026 with us</h2>
+
+  <div class="heart">❤️</div>
+
+  <div class="countdown" id="countdown"></div>
+
+  <div class="message" id="message">
+    This year became magical because of you. Every smile you gave me, every moment we shared, and every memory we created means everything to my heart. You turned ordinary days into beautiful memories. As we enter this new year, I promise to love you more every single day. 💖
+  </div>
+  <!-- Sorry Button -->
+<button id="sorryBtn" onclick="showSorry()">Sorry 💔</button>
+
+<!-- Sorry Content Box -->
+<div class="sorry-box" id="sorryBox">
+  sorry ava my princess erna poppa g murani ancha pande.
+  aik bk ereg murani neriye sry purekla e 2025 d dada mistake malde purekla sry 🙏
+  ava yna sry accept malpule. 💖
+</div>
+
+
+  <!-- Buttons -->
+  <button id="surpriseBtn" onclick="showMore()">Click for Surprise 💖</button>
+  <button id="videoBtn" onclick="playVideo()">🎬 Watch Our Surprise Video</button>
+
+  <!-- Gallery -->
+  <div class="gallery" id="gallery">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+  </div>
+
+  <footer>Made with ❤️ by Tharun</footer>
+</div>
+
+<script>
+function showMore() {
+  document.getElementById('message').innerHTML =
+  `You are my happiness, my peace, and my future.
+   Every picture here holds a memory I cherish.
+   I love you forever ❤️✨`;
+
+  document.getElementById('gallery').style.display = 'grid';
+
+  const music = document.getElementById('bgMusic');
+  music.currentTime = 0;
+  music.volume = 0.9;
+  music.play();
+
+  document.getElementById('videoBtn').style.display = 'inline-block';
+  document.getElementById('surpriseBtn').style.display = 'none';
+}
+
+function playVideo() {
+  const video = document.getElementById('loveVideo');
+  video.style.display = 'block';
+  video.currentTime = 0;
+  video.play();
+
+  document.getElementById('videoBtn').style.display = 'none';
+}
+</script>
+
+<script>
+const countdownEl = document.getElementById('countdown');
+const targetDate = new Date('January 1, 2026 00:00:00').getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  if (diff < 0) {
+    countdownEl.innerHTML = "🎉 Happy New Year! 🎉";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff%(1000*60*60))/(1000*60));
+  const s = Math.floor((diff%(1000*60))/1000);
+
+  countdownEl.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+}, 1000);
+const video = document.getElementById("loveVideo");
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+// Desktop (mouse)
+video.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  offsetX = e.clientX - video.offsetLeft;
+  offsetY = e.clientY - video.offsetTop;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  video.style.left = e.clientX - offsetX + "px";
+  video.style.top = e.clientY - offsetY + "px";
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
+// Mobile (touch)
+video.addEventListener("touchstart", (e) => {
+  isDragging = true;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - video.offsetLeft;
+  offsetY = touch.clientY - video.offsetTop;
+});
+
+document.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+  const touch = e.touches[0];
+  video.style.left = touch.clientX - offsetX + "px";
+  video.style.top = touch.clientY - offsetY + "px";
+});
+
+document.addEventListener("touchend", () => {
+  isDragging = false;
+});
+function showSorry() {
+  const box = document.getElementById("sorryBox");
+  box.style.display = "block";
+
+  // Smooth scroll to box
+  box.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+</script>
+
+</body>
+</html>
